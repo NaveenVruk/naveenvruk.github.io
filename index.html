@@ -7,291 +7,326 @@
 <meta name="description" content="Naveen Vruk — figuring it out.">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg: #FFFFFF;
-  --bg2: #F5F7FA;
-  --ink: #0D0D0D;
-  --ink2: #3A3A3A;
-  --ink3: #888888;
-  --border: #E2E6ED;
-  --blue: #1A56DB;
-  --blue-soft: #EBF0FD;
-  --blue-mid: #3B6FD4;
-  --surface: #FFFFFF;
-  --surface2: #F0F4FA;
-  --mono: 'IBM Plex Mono', monospace;
-  --serif: 'Fraunces', serif;
-  --sans: 'DM Sans', sans-serif;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#fff;--bg2:#F4F7FC;--ink:#0A0A0A;--ink2:#2E2E2E;--ink3:#7A7A8A;
+  --border:#DDE3EE;--blue:#1847C2;--blue-h:#1238A0;--blue-soft:#EBF0FB;--blue-mid:#2D5FD4;
+  --mono:'IBM Plex Mono',monospace;--serif:'Fraunces',serif;--sans:'DM Sans',sans-serif;
 }
-html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;}
 
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(255,255,255,0.94); backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;}
+.nav-logo{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink);text-decoration:none;}
+.nav-logo span{color:var(--blue);}
+.nav-links{display:flex;gap:1.75rem;list-style:none;}
+.nav-links a{font-size:13px;color:var(--ink3);text-decoration:none;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);}
+
+.container{max-width:720px;margin:0 auto;padding:0 1.5rem;}
+section{padding:5.5rem 0;}
+section+section{border-top:1px solid var(--border);}
+
+/* HERO */
+#home{padding-top:9rem;padding-bottom:5.5rem;}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:1.1rem;}
+.hero-h1{font-family:var(--serif);font-size:clamp(2.4rem,6vw,3.6rem);font-weight:300;line-height:1.08;letter-spacing:-.025em;margin-bottom:1.5rem;}
+.hero-h1 em{font-style:italic;}
+.hero-bio{font-size:1rem;color:var(--ink2);max-width:460px;line-height:1.85;margin-bottom:2rem;}
+.hero-latest{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:2rem;max-width:560px;}
+.hero-latest-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--ink3);margin-bottom:.5rem;}
+.hero-latest-title{font-size:14px;font-weight:500;margin-bottom:.3rem;}
+.hero-latest-snippet{font-size:13px;color:var(--ink3);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.hero-reading{display:flex;align-items:center;gap:.75rem;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border);}
+.hero-reading-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink3);}
+.hero-reading-book{font-size:13px;font-weight:500;color:var(--ink);}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--blue);margin-right:5px;animation:blink 2.2s infinite;vertical-align:middle;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:5px;font-size:13px;font-weight:500;text-decoration:none;font-family:var(--sans);transition:all .15s;cursor:pointer;border:none;}
+.btn-primary{background:var(--blue);color:#fff;}
+.btn-primary:hover{background:var(--blue-h);}
+.btn-ghost{background:transparent;color:var(--ink2);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink);}
+
+/* SEC HEADERS */
+.sec-eye{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-bottom:.35rem;}
+.sec-title{font-family:var(--serif);font-size:1.7rem;font-weight:400;letter-spacing:-.02em;margin-bottom:.4rem;line-height:1.2;}
+.sec-sub{font-size:13px;color:var(--ink3);margin-bottom:2.5rem;max-width:420px;line-height:1.7;}
+
+/* BOOKS */
+.book-list{display:flex;flex-direction:column;}
+.book-item{display:flex;align-items:flex-start;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid var(--border);cursor:pointer;}
+.book-item:first-child{border-top:1px solid var(--border);}
+.book-cover{width:58px;min-width:58px;height:84px;border-radius:4px;border:1px solid var(--border);background:var(--blue);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
+.book-cover img{width:100%;height:100%;object-fit:cover;}
+.book-cover span{font-family:var(--mono);font-size:7px;color:white;text-transform:uppercase;letter-spacing:.05em;text-align:center;padding:4px;line-height:1.4;}
+.book-cover.inactive{background:var(--bg2);}
+.book-cover.inactive span{color:var(--ink3);}
+.book-meta{flex:1;}
+.book-title{font-size:14px;font-weight:500;margin-bottom:3px;}
+.book-author{font-size:12px;color:var(--ink3);margin-bottom:8px;}
+.book-status-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.book-tag{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:3px;}
+.book-tag.reading{background:var(--blue-soft);color:var(--blue);}
+.book-tag.queue{background:var(--bg2);color:var(--ink3);}
+.book-tag.done{background:#EAF5EA;color:#1A6A1A;}
+.book-prog-wrap{height:3px;background:var(--border);border-radius:100px;overflow:hidden;width:90px;}
+.book-prog-fill{height:100%;background:var(--blue);border-radius:100px;transition:width .5s;}
+.book-arrow{font-size:14px;color:var(--ink3);align-self:center;margin-left:auto;transition:all .2s;}
+.book-item:hover .book-arrow{color:var(--blue);transform:translateX(3px);}
+
+/* DRAWER */
+.book-drawer{display:none;background:var(--bg2);border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:1.75rem;margin-bottom:2px;}
+.book-drawer.open{display:block;}
+.drawer-lbl{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--ink3);margin-bottom:8px;display:block;}
+.identity-block{border-left:3px solid var(--blue);padding:.7rem 1.1rem;background:var(--blue-soft);border-radius:0 6px 6px 0;margin-bottom:1.5rem;}
+.identity-text{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--ink);line-height:1.65;}
+.identity-text.empty{color:var(--ink3);font-style:normal;font-family:var(--sans);font-size:13px;}
+.ch-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;margin-bottom:8px;}
+@media(max-width:480px){.ch-grid{grid-template-columns:repeat(6,1fr);}}
+.ch-box{aspect-ratio:1;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--ink3);background:var(--bg);border:1px solid var(--border);}
+.ch-box.done{background:var(--blue);border-color:var(--blue);color:white;}
+.ch-box.reading{background:var(--blue-soft);border-color:var(--blue-mid);color:var(--blue);}
+.leg-row{display:flex;gap:1rem;font-family:var(--mono);font-size:10px;color:var(--ink3);margin-top:6px;margin-bottom:1.5rem;}
+.leg-dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;vertical-align:middle;}
+.habit-pub-row{display:flex;align-items:center;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid var(--border);}
+.habit-pub-row:last-child{border-bottom:none;}
+.h-dots{display:flex;gap:3px;margin-top:4px;}
+.hdot{width:9px;height:9px;border-radius:2px;background:var(--border);}
+.hdot.on{background:var(--blue);}
+.streak-pill{font-family:var(--mono);font-size:10px;color:var(--blue);background:var(--blue-soft);padding:2px 9px;border-radius:3px;}
+.entry-card{padding:1.1rem 0;border-bottom:1px solid var(--border);}
+.entry-card:last-child{border-bottom:none;}
+.entry-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;}
+.entry-date{font-family:var(--mono);font-size:10px;color:var(--ink3);}
+.entry-ch{font-family:var(--mono);font-size:10px;background:var(--blue-soft);color:var(--blue);padding:1px 7px;border-radius:3px;}
+.entry-body{font-size:13px;line-height:1.85;color:var(--ink2);white-space:pre-wrap;}
+.entry-body.clamp{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.more-btn{font-family:var(--mono);font-size:10px;color:var(--blue);cursor:pointer;background:none;border:none;padding:0;margin-top:4px;}
+
+/* REVIEWS */
+.reviews-wrap{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+.review-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;margin-bottom:.75rem;}
+.review-header{display:flex;align-items:center;gap:10px;margin-bottom:.5rem;}
+.review-avatar{width:32px;height:32px;border-radius:50%;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--blue);font-weight:500;flex-shrink:0;overflow:hidden;}
+.review-avatar img{width:100%;height:100%;object-fit:cover;}
+.review-name{font-size:13px;font-weight:500;}
+.review-date{font-family:var(--mono);font-size:10px;color:var(--ink3);margin-left:auto;}
+.review-body{font-size:13px;line-height:1.8;color:var(--ink2);}
+.stars{display:flex;gap:2px;margin-bottom:4px;}
+.star{font-size:12px;color:var(--blue);}
+.star.empty{color:var(--border);}
+.sign-in-box{background:var(--blue-soft);border:1px solid rgba(24,71,194,.15);border-radius:8px;padding:1.25rem;text-align:center;margin-top:1rem;}
+.sign-in-box p{font-size:13px;color:var(--ink2);margin-bottom:.75rem;}
+.btn-google{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border:1px solid var(--border);border-radius:5px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--sans);transition:all .15s;color:var(--ink);}
+.btn-google:hover{border-color:var(--blue);}
+.btn-google svg{width:16px;height:16px;}
+.review-form-wrap{margin-top:1rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.25rem;}
+.review-form-wrap h4{font-size:13px;font-weight:500;margin-bottom:.75rem;}
+.star-picker{display:flex;gap:4px;margin-bottom:.75rem;cursor:pointer;}
+.star-pick{font-size:20px;color:var(--border);transition:color .1s;}
+.star-pick.lit{color:var(--blue);}
+.user-bar{display:flex;align-items:center;gap:10px;margin-bottom:1rem;padding:.65rem .9rem;background:var(--bg2);border-radius:6px;border:1px solid var(--border);}
+.user-bar img{width:28px;height:28px;border-radius:50%;object-fit:cover;}
+.user-bar span{font-size:13px;color:var(--ink2);flex:1;}
+.signout-btn{font-family:var(--mono);font-size:10px;color:var(--ink3);background:none;border:none;cursor:pointer;text-decoration:underline;}
+
+/* WRITING */
+.story-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:2rem;margin-bottom:1.5rem;}
+.story-title{font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:.4rem;}
+.story-meta{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:1.25rem;}
+.story-preview{font-size:14px;line-height:1.9;color:var(--ink2);display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:1.25rem;}
+.story-actions{display:flex;gap:.75rem;flex-wrap:wrap;}
+.story-full{display:none;font-size:14px;line-height:1.95;color:var(--ink2);white-space:pre-wrap;margin-bottom:1.25rem;}
+.story-full.open{display:block;}
+.empty-writing{padding:3rem 0;text-align:center;color:var(--ink3);}
+.empty-writing strong{display:block;font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--ink2);margin-bottom:4px;}
+
+/* ABOUT */
+.about-text{font-family:var(--serif);font-size:1.5rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--ink);max-width:500px;margin-bottom:2rem;}
+.about-bio{font-size:14px;color:var(--ink2);line-height:1.85;max-width:500px;margin-bottom:2rem;}
+.social-links{display:flex;gap:1rem;flex-wrap:wrap;}
+.social-link{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--border);border-radius:5px;font-size:13px;color:var(--ink2);text-decoration:none;transition:all .15s;font-weight:500;}
+.social-link:hover{border-color:var(--blue);color:var(--blue);}
+.social-link svg{width:16px;height:16px;}
+
+/* CONTACT */
+.contact-form{max-width:480px;}
+.contact-form input,.contact-form textarea{width:100%;padding:.6rem .8rem;border:1px solid var(--border);border-radius:5px;font-family:var(--sans);font-size:13px;background:var(--bg);color:var(--ink);margin-bottom:.75rem;resize:vertical;line-height:1.65;transition:border-color .15s;}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--blue);}
+
+/* FOOTER */
+footer{padding:2.5rem 0;border-top:1px solid var(--border);}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-name{font-family:var(--mono);font-size:11px;color:var(--ink3);}
+.footer-name strong{color:var(--ink);}
+.footer-links{display:flex;gap:1.5rem;list-style:none;}
+.footer-links a{font-family:var(--mono);font-size:10px;color:var(--ink3);text-decoration:none;transition:color .15s;}
+.footer-links a:hover{color:var(--blue);}
+.footer-social{display:flex;gap:.75rem;}
+.footer-social a{color:var(--ink3);transition:color .15s;text-decoration:none;}
+.footer-social a:hover{color:var(--blue);}
+.footer-social svg{width:16px;height:16px;}
+
+/* EMPTY */
+.empty-state{padding:1.75rem 0;text-align:center;color:var(--ink3);font-size:13px;}
+.empty-state strong{display:block;font-family:var(--serif);font-size:1rem;font-weight:400;color:var(--ink2);margin-bottom:3px;}
+
+/* ═══════════════════════════════
+   EDITOR
+═══════════════════════════════ */
+.editor-bar{display:none;position:fixed;top:0;left:0;right:0;z-index:500;background:var(--ink);color:white;height:52px;align-items:center;justify-content:space-between;padding:0 1.5rem;gap:1rem;}
+.editor-bar.show{display:flex;}
+.editor-bar-left{display:flex;align-items:center;gap:1rem;}
+.editor-bar h3{font-family:var(--mono);font-size:12px;font-weight:500;color:white;white-space:nowrap;}
+.editor-tabs{display:flex;gap:.25rem;}
+.etab{padding:5px 12px;font-size:11px;font-weight:500;border:none;border-radius:4px;cursor:pointer;background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-family:var(--sans);transition:all .15s;}
+.etab:hover{background:rgba(255,255,255,.2);color:white;}
+.etab.active{background:var(--blue);color:white;}
+.publish-btn{padding:7px 18px;background:white;color:var(--ink);border:none;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:all .15s;white-space:nowrap;}
+.publish-btn:hover{background:var(--blue-soft);color:var(--blue);}
+.publish-btn.saving{background:var(--blue);color:white;pointer-events:none;}
+.exit-editor{padding:6px 12px;background:transparent;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.2);border-radius:4px;font-size:11px;cursor:pointer;font-family:var(--sans);}
+.exit-editor:hover{color:white;border-color:rgba(255,255,255,.5);}
+
+/* editor panel (side drawer) */
+.editor-panel{display:none;position:fixed;top:52px;right:0;bottom:0;width:380px;background:var(--bg);border-left:1px solid var(--border);z-index:400;overflow-y:auto;box-shadow:-4px 0 20px rgba(0,0,0,.06);}
+.editor-panel.show{display:block;}
+.ep-section{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);}
+.ep-title{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink3);margin-bottom:.75rem;display:flex;align-items:center;justify-content:space-between;}
+.ep-field{margin-bottom:.75rem;}
+.ep-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);display:block;margin-bottom:4px;}
+.ep-input,.ep-textarea,.ep-select{width:100%;padding:.5rem .7rem;border:1px solid var(--border);border-radius:5px;font-family:var(--sans);font-size:13px;background:var(--bg);color:var(--ink);transition:border-color .15s;line-height:1.6;}
+.ep-textarea{resize:vertical;min-height:80px;}
+.ep-input:focus,.ep-textarea:focus,.ep-select:focus{outline:none;border-color:var(--blue);}
+.ep-btn{padding:7px 16px;font-size:12px;font-weight:500;font-family:var(--sans);border-radius:4px;cursor:pointer;border:none;background:var(--blue);color:white;transition:background .15s;}
+.ep-btn:hover{background:var(--blue-h);}
+.ep-btn-ghost{background:transparent;color:var(--ink3);border:1px solid var(--border);margin-left:6px;}
+.ep-btn-ghost:hover{background:var(--bg2);color:var(--ink);}
+.ep-btn-danger{background:#DC2626;color:white;margin-left:6px;}
+.ep-btn-danger:hover{background:#B91C1C;}
+.ep-alert{padding:.45rem .7rem;border-radius:4px;font-size:11px;margin-top:.5rem;display:none;font-family:var(--mono);}
+.ep-alert.ok{background:#EAF5EA;color:#1A6A1A;display:block;}
+.ep-alert.err{background:#FAEAEA;color:#8A1A1A;display:block;}
+
+/* book editor cards */
+.book-edit-card{background:var(--bg2);border:1px solid var(--border);border-radius:7px;padding:.9rem 1rem;margin-bottom:.6rem;}
+.book-edit-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;}
+.book-edit-card-title{font-size:13px;font-weight:500;}
+.ch-tog-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin:.5rem 0;}
+.ch-tog{aspect-ratio:1;border-radius:3px;border:1px solid var(--border);background:var(--bg);cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--ink3);display:flex;align-items:center;justify-content:center;transition:all .1s;}
+.ch-tog.done{background:var(--blue);border-color:var(--blue);color:white;}
+.ch-tog.reading{background:var(--blue-soft);border-color:var(--blue-mid);color:var(--blue);}
+.mood-row{display:flex;gap:4px;}
+.mood-btn{font-size:16px;cursor:pointer;background:none;border:1px solid var(--border);border-radius:4px;padding:3px 6px;transition:all .1s;}
+.mood-btn:hover,.mood-btn.sel{border-color:var(--blue);background:var(--blue-soft);}
+.habit-tog-row{display:flex;align-items:center;justify-content:space-between;padding:.45rem 0;border-bottom:1px solid var(--border);}
+.habit-tog-row:last-child{border-bottom:none;}
+.tog-btn{font-size:11px;padding:3px 9px;border-radius:3px;border:1px solid var(--border);cursor:pointer;font-family:var(--mono);transition:all .1s;}
+.tog-btn.done{background:var(--blue);border-color:var(--blue);color:white;}
+
+/* editor body offset */
+body.editing{padding-top:52px;}
+body.editing nav{top:52px;}
+
+/* auth overlay */
+.auth-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,10,.6);z-index:600;align-items:center;justify-content:center;}
+.auth-overlay.show{display:flex;}
+.auth-box{background:var(--bg);border-radius:12px;padding:2.5rem;width:100%;max-width:380px;text-align:center;}
+.auth-box h2{font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:.4rem;}
+.auth-box p{font-size:13px;color:var(--ink3);margin-bottom:1.5rem;}
+.auth-box input{width:100%;padding:.6rem .8rem;border:1px solid var(--border);border-radius:5px;font-family:var(--sans);font-size:14px;background:var(--bg);color:var(--ink);margin-bottom:.75rem;text-align:center;letter-spacing:.1em;}
+.auth-box input:focus{outline:none;border-color:var(--blue);}
+
+@media(max-width:600px){
+  nav{padding:0 1rem;}
+  .nav-links{gap:1rem;}
+  .editor-panel{width:100%;top:auto;bottom:0;height:70vh;border-left:none;border-top:1px solid var(--border);}
 }
-.nav-logo { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; }
-.nav-logo span { color: var(--blue); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { font-size: 13px; color: var(--ink3); text-decoration: none; transition: color 0.15s; }
-.nav-links a:hover, .nav-links a.active { color: var(--ink); }
-
-.container { max-width: 700px; margin: 0 auto; padding: 0 1.5rem; }
-section { padding: 5rem 0; }
-section + section { border-top: 1px solid var(--border); }
-
-#hero { padding-top: 8.5rem; padding-bottom: 5rem; }
-.eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.1rem; }
-.hero h1 { font-family: var(--serif); font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.4rem; }
-.hero h1 em { font-style: italic; }
-.hero-bio { font-size: 1rem; color: var(--ink2); max-width: 460px; line-height: 1.8; margin-bottom: 2.25rem; }
-.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.btn { display: inline-flex; align-items: center; gap: 5px; padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 500; text-decoration: none; font-family: var(--sans); transition: all 0.15s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--blue); }
-.btn-ghost { background: transparent; color: var(--ink2); border: 1px solid var(--border); }
-.btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
-
-.sec-eye { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.35rem; }
-.sec-title { font-family: var(--serif); font-size: 1.65rem; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 0.4rem; line-height: 1.2; }
-.sec-sub { font-size: 13px; color: var(--ink3); margin-bottom: 2.25rem; max-width: 440px; }
-
-.now-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-@media (max-width: 500px) { .now-grid { grid-template-columns: 1fr; } }
-.now-cell { background: var(--surface); padding: 1.1rem 1.25rem; }
-.now-cell-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink3); margin-bottom: 4px; }
-.now-cell-value { font-size: 14px; font-weight: 500; color: var(--ink); }
-.now-cell-sub { font-size: 12px; color: var(--ink3); margin-top: 2px; }
-.live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); margin-right: 5px; animation: blink 2.2s infinite; vertical-align: middle; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-.book-list { display: flex; flex-direction: column; }
-.book-item { display: flex; align-items: flex-start; gap: 1.1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); transition: background 0.1s; }
-.book-item:first-child { border-top: 1px solid var(--border); }
-.book-item.clickable { cursor: pointer; }
-.book-spine-bar { width: 5px; min-width: 5px; height: 52px; border-radius: 2px; background: var(--blue); margin-top: 3px; flex-shrink: 0; }
-.book-spine-bar.inactive { background: var(--border); }
-.book-meta { flex: 1; }
-.book-title { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
-.book-author { font-size: 12px; color: var(--ink3); margin-bottom: 6px; }
-.book-status-row { display: flex; align-items: center; gap: 8px; }
-.book-tag { font-family: var(--mono); font-size: 10px; padding: 2px 7px; border-radius: 3px; }
-.book-tag.reading { background: var(--blue-soft); color: var(--blue); }
-.book-tag.queue { background: var(--surface2); color: var(--ink3); }
-.book-prog-wrap { height: 3px; background: var(--border); border-radius: 100px; overflow: hidden; width: 100px; }
-.book-prog-fill { height: 100%; background: var(--blue); border-radius: 100px; transition: width 0.4s; }
-.book-arrow { font-size: 14px; color: var(--ink3); align-self: center; transition: all 0.2s; }
-.book-item.clickable:hover .book-arrow { color: var(--blue); }
-
-.ah-drawer { display: none; background: var(--bg2); border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; padding: 1.5rem; margin-bottom: 1px; }
-.ah-drawer.open { display: block; }
-
-.ah-lbl { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink3); margin-bottom: 6px; }
-
-.identity-block { border-left: 3px solid var(--blue); padding: 0.65rem 1rem; background: var(--blue-soft); border-radius: 0 5px 5px 0; margin-bottom: 1.25rem; }
-.identity-text { font-family: var(--serif); font-size: 1rem; font-style: italic; color: var(--ink); line-height: 1.6; }
-.identity-text.empty { color: var(--ink3); font-style: normal; font-family: var(--sans); font-size: 13px; }
-
-.chapters-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 5px; margin-bottom: 6px; }
-@media (max-width: 480px) { .chapters-grid { grid-template-columns: repeat(6, 1fr); } }
-.ch-box { aspect-ratio: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 8px; color: var(--ink3); background: var(--surface); border: 1px solid var(--border); }
-.ch-box.done { background: var(--blue); border-color: var(--blue); color: white; }
-.ch-box.reading { background: var(--blue-soft); border-color: var(--blue-mid); color: var(--blue); }
-
-.legend-row { display: flex; gap: 1rem; font-family: var(--mono); font-size: 10px; color: var(--ink3); margin-bottom: 1.25rem; }
-.leg-dot { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
-
-.habit-row-pub { display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
-.habit-row-pub:last-child { border-bottom: none; }
-.habit-dots { display: flex; gap: 3px; margin-top: 3px; }
-.hdot { width: 9px; height: 9px; border-radius: 2px; background: var(--border); }
-.hdot.on { background: var(--blue); }
-.streak-pill { font-family: var(--mono); font-size: 10px; color: var(--blue); background: var(--blue-soft); padding: 2px 8px; border-radius: 3px; }
-
-.entry-item { padding: 1rem 0; border-bottom: 1px solid var(--border); }
-.entry-item:last-child { border-bottom: none; }
-.entry-meta-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; }
-.entry-date { font-family: var(--mono); font-size: 10px; color: var(--ink3); }
-.entry-ch-tag { font-family: var(--mono); font-size: 10px; background: var(--blue-soft); color: var(--blue); padding: 1px 6px; border-radius: 3px; }
-.entry-body { font-size: 13px; line-height: 1.8; color: var(--ink2); white-space: pre-wrap; }
-.entry-body.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.more-btn { font-family: var(--mono); font-size: 10px; color: var(--blue); cursor: pointer; background: none; border: none; padding: 0; margin-top: 3px; }
-
-.about-text { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; font-style: italic; line-height: 1.7; color: var(--ink); max-width: 500px; }
-
-footer { padding: 2.5rem 0; border-top: 1px solid var(--border); }
-.footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-.footer-name { font-family: var(--mono); font-size: 11px; color: var(--ink3); }
-.footer-name strong { color: var(--ink); }
-.footer-links { display: flex; gap: 1.25rem; list-style: none; }
-.footer-links a { font-family: var(--mono); font-size: 10px; color: var(--ink3); text-decoration: none; transition: color 0.15s; }
-.footer-links a:hover { color: var(--blue); }
-
-.writer-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: white; border: none; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.12); z-index: 200; transition: background 0.15s; }
-.writer-btn:hover { background: var(--blue); }
-
-.w-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 300; align-items: flex-end; justify-content: center; padding: 1rem; }
-.w-modal.open { display: flex; }
-.w-sheet { background: var(--surface); border-radius: 12px 12px 8px 8px; width: 100%; max-width: 560px; max-height: 88vh; overflow-y: auto; padding: 1.5rem; }
-.w-sheet h2 { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; margin-bottom: 1.1rem; }
-.field-lbl { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink3); display: block; margin-bottom: 4px; margin-top: 0.9rem; }
-.field-lbl:first-of-type { margin-top: 0; }
-input[type=text], input[type=password], textarea, select { width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 5px; font-family: var(--sans); font-size: 13px; background: var(--bg); color: var(--ink); resize: vertical; line-height: 1.6; transition: border-color 0.15s; }
-input:focus, textarea:focus, select:focus { outline: none; border-color: var(--blue); }
-.w-tabs { display: flex; border-bottom: 1px solid var(--border); margin-bottom: 1.1rem; }
-.w-tab { padding: 0.5rem 0.9rem; font-size: 12px; font-weight: 500; color: var(--ink3); cursor: pointer; border: none; border-bottom: 2px solid transparent; background: none; font-family: var(--sans); transition: all 0.1s; }
-.w-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
-.w-sub { display: none; }
-.w-sub.active { display: block; }
-.mood-row { display: flex; gap: 5px; }
-.mood-btn { font-size: 16px; cursor: pointer; background: none; border: 1px solid var(--border); border-radius: 5px; padding: 4px 7px; transition: all 0.1s; }
-.mood-btn:hover, .mood-btn.sel { border-color: var(--blue); background: var(--blue-soft); }
-.btn-sm { padding: 7px 16px; font-size: 12px; font-weight: 500; font-family: var(--sans); border-radius: 4px; cursor: pointer; border: none; background: var(--ink); color: white; transition: background 0.15s; margin-top: 0.9rem; }
-.btn-sm:hover { background: var(--blue); }
-.btn-cancel { background: transparent; color: var(--ink3); border: 1px solid var(--border); margin-left: 6px; }
-.btn-cancel:hover { background: var(--bg2); color: var(--ink); }
-.ch-tog-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; margin-top: 6px; }
-.ch-tog { aspect-ratio: 1; border-radius: 4px; border: 1px solid var(--border); background: var(--bg2); cursor: pointer; font-family: var(--mono); font-size: 9px; color: var(--ink3); display: flex; align-items: center; justify-content: center; transition: all 0.1s; }
-.ch-tog.done { background: var(--blue); border-color: var(--blue); color: white; }
-.ch-tog.reading { background: var(--blue-soft); border-color: var(--blue-mid); color: var(--blue); }
-.alert { padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 12px; margin-top: 0.6rem; display: none; font-family: var(--mono); }
-.alert.ok { background: #EAF4EA; color: #2A6A2A; display: block; }
-.alert.err { background: #FAEAEA; color: #8A1A1A; display: block; }
-.empty-state { padding: 1.75rem 0; text-align: center; color: var(--ink3); font-size: 13px; }
-.empty-state strong { display: block; font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink2); margin-bottom: 3px; }
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="#" class="nav-logo">naveen<span>.</span>vruk</a>
+<nav id="main-nav">
+  <a href="#home" class="nav-logo">naveen<span>.</span>vruk</a>
   <ul class="nav-links">
-    <li><a href="#now">Now</a></li>
+    <li><a href="#home" class="active">Home</a></li>
     <li><a href="#books">Books</a></li>
+    <li><a href="#writing">Writing</a></li>
     <li><a href="#about">About</a></li>
   </ul>
 </nav>
 
-<section id="hero">
+<!-- HOME -->
+<section id="home">
   <div class="container">
     <div class="eyebrow">vrukx.com</div>
-    <h1>Naveen Vruk.<br><em>Figuring it out.</em></h1>
-    <p class="hero-bio">This is where I keep track of what I'm reading, thinking, and working on. Not a portfolio. Just the record.</p>
-    <div class="hero-actions">
-      <a href="#now" class="btn btn-primary">What's happening now</a>
-      <a href="#about" class="btn btn-ghost">About</a>
+    <h1 class="hero-h1">Naveen Vruk.<br><em>Figuring it out.</em></h1>
+    <p class="hero-bio">This is where I keep track of what I'm reading, writing, and working through. Not a portfolio — just the record.</p>
+
+    <div class="hero-latest" id="home-latest">
+      <div class="hero-latest-label"><span class="live-dot"></span>Latest entry</div>
+      <div class="hero-latest-title" id="home-entry-title">Nothing logged yet</div>
+      <div class="hero-latest-snippet" id="home-entry-snippet">First journal entry coming soon.</div>
+      <div class="hero-reading">
+        <span class="hero-reading-label">Reading</span>
+        <span class="hero-reading-book" id="home-reading-book">—</span>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+      <a href="#books" class="btn btn-primary">Books →</a>
+      <a href="#writing" class="btn btn-ghost">Writing</a>
     </div>
   </div>
 </section>
 
-<section id="now">
-  <div class="container">
-    <div class="sec-eye">Status</div>
-    <h2 class="sec-title">Now</h2>
-    <p class="sec-sub">What I'm doing at the moment.</p>
-    <div class="now-grid">
-      <div class="now-cell">
-        <div class="now-cell-label">Reading</div>
-        <div class="now-cell-value">Atomic Habits</div>
-        <div class="now-cell-sub">Treating it as a field manual</div>
-      </div>
-      <div class="now-cell">
-        <div class="now-cell-label">Focus</div>
-        <div class="now-cell-value">Building systems</div>
-        <div class="now-cell-sub">Identity-first approach</div>
-      </div>
-      <div class="now-cell">
-        <div class="now-cell-label">Status</div>
-        <div class="now-cell-value"><span class="live-dot"></span>Active</div>
-        <div class="now-cell-sub" id="days-label">Day 1 of the experiment</div>
-      </div>
-      <div class="now-cell">
-        <div class="now-cell-label">Site</div>
-        <div class="now-cell-value">vrukx.com</div>
-        <div class="now-cell-sub">This is how you find me</div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- BOOKS -->
 <section id="books">
   <div class="container">
     <div class="sec-eye">Reading</div>
     <h2 class="sec-title">Books</h2>
-    <p class="sec-sub">What I'm reading and what I'm taking from it.</p>
+    <p class="sec-sub">What I'm reading and what I'm taking from it. Sign in to leave your own take.</p>
+    <div class="book-list" id="books-list"></div>
+  </div>
+</section>
 
-    <div class="book-list">
-      <div>
-        <div class="book-item clickable" onclick="toggleAH()">
-          <div class="book-spine-bar"></div>
-          <div class="book-meta">
-            <div class="book-title">Atomic Habits</div>
-            <div class="book-author">James Clear</div>
-            <div class="book-status-row">
-              <span class="book-tag reading">Reading</span>
-              <div class="book-prog-wrap"><div class="book-prog-fill" id="ah-prog" style="width:0%"></div></div>
-              <span id="ah-prog-label" style="font-family:var(--mono);font-size:10px;color:var(--ink3);"></span>
-            </div>
-          </div>
-          <span class="book-arrow" id="ah-arrow">→</span>
-        </div>
-        <div class="ah-drawer" id="ah-drawer">
-          <div style="margin-bottom:1.25rem;">
-            <div class="ah-lbl">Who I'm becoming</div>
-            <div class="identity-block">
-              <div class="identity-text empty" id="identity-display">Not written yet.</div>
-            </div>
-          </div>
-          <div style="margin-bottom:1.25rem;">
-            <div class="ah-lbl">Chapter progress</div>
-            <div class="chapters-grid" id="chapters-grid"></div>
-            <div class="legend-row" style="margin-top:6px;margin-bottom:0;">
-              <span><span class="leg-dot" style="background:var(--blue);"></span>Done</span>
-              <span><span class="leg-dot" style="background:var(--blue-soft);border:1px solid var(--blue-mid);"></span>Reading</span>
-              <span><span class="leg-dot" style="background:var(--border);"></span>Not yet</span>
-            </div>
-          </div>
-          <div id="habits-pub-wrap" style="margin-bottom:1.25rem;display:none;">
-            <div class="ah-lbl">Habit streaks — last 14 days</div>
-            <div id="habits-pub"></div>
-          </div>
-          <div>
-            <div class="ah-lbl">Field notes</div>
-            <div id="journal-pub">
-              <div class="empty-state"><strong>Nothing logged yet</strong>First entry coming soon</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-item">
-        <div class="book-spine-bar inactive"></div>
-        <div class="book-meta">
-          <div class="book-title">Deep Work</div>
-          <div class="book-author">Cal Newport</div>
-          <div class="book-status-row"><span class="book-tag queue">Up next</span></div>
-        </div>
-      </div>
-
-      <div class="book-item">
-        <div class="book-spine-bar inactive"></div>
-        <div class="book-meta">
-          <div class="book-title">The War of Art</div>
-          <div class="book-author">Steven Pressfield</div>
-          <div class="book-status-row"><span class="book-tag queue">In the queue</span></div>
-        </div>
-      </div>
+<!-- WRITING -->
+<section id="writing">
+  <div class="container">
+    <div class="sec-eye">Writing</div>
+    <h2 class="sec-title">Writing</h2>
+    <p class="sec-sub">Stories and pieces I've written.</p>
+    <div id="writing-list">
+      <div class="empty-writing"><strong>Coming soon</strong>Working on getting this up.</div>
     </div>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="sec-eye">About</div>
-    <p class="about-text">Just here, figuring it out.</p>
+    <p class="about-text" id="about-tagline">Just here, figuring it out.</p>
+    <p class="about-bio" id="about-bio"></p>
+    <div class="social-links" id="social-links"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-eye">Contact</div>
+    <h2 class="sec-title">Get in touch</h2>
+    <p class="sec-sub">Leave a message — I read everything.</p>
+    <div class="contact-form">
+      <input type="text" id="contact-name" placeholder="Your name" />
+      <input type="text" id="contact-email" placeholder="Your email (optional)" />
+      <textarea id="contact-msg" rows="5" placeholder="Your message..."></textarea>
+      <button class="btn btn-primary" onclick="sendContact()">Send message</button>
+      <div class="ep-alert" id="contact-alert" style="margin-top:.75rem;"></div>
+    </div>
   </div>
 </section>
 
@@ -299,175 +334,314 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: var(--b
   <div class="container">
     <div class="footer-inner">
       <span class="footer-name"><strong>Naveen Vruk</strong> — vrukx.com</span>
+      <div class="footer-social" id="footer-social"></div>
       <ul class="footer-links">
-        <li><a href="#now">Now</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#books">Books</a></li>
+        <li><a href="#writing">Writing</a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </div>
   </div>
 </footer>
 
-<button class="writer-btn" onclick="openW()" title="Update">✎</button>
+<!-- EDITOR BAR -->
+<div class="editor-bar" id="editor-bar">
+  <div class="editor-bar-left">
+    <h3>✎ Editor</h3>
+    <div class="editor-tabs">
+      <button class="etab active" onclick="eTab('home')">Home</button>
+      <button class="etab" onclick="eTab('books')">Books</button>
+      <button class="etab" onclick="eTab('writing')">Writing</button>
+      <button class="etab" onclick="eTab('about')">About</button>
+      <button class="etab" onclick="eTab('habits')">Habits</button>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:.75rem;">
+    <button class="publish-btn" id="publish-btn" onclick="publishChanges()">Publish changes</button>
+    <button class="exit-editor" onclick="exitEditor()">Exit</button>
+  </div>
+</div>
 
-<div class="w-modal" id="w-modal">
-  <div class="w-sheet">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem;">
-      <h2 style="margin:0;">Update your site</h2>
-      <button onclick="closeW()" style="background:none;border:none;font-size:18px;cursor:pointer;color:var(--ink3);">×</button>
-    </div>
-    <div id="w-auth">
-      <label class="field-lbl">Password</label>
-      <input type="password" id="pw" placeholder="Your writer password..." />
-      <div style="display:flex;gap:6px;margin-top:0.75rem;">
-        <button class="btn-sm" onclick="checkPw()">Unlock</button>
-        <button class="btn-sm btn-cancel" onclick="closeW()">Cancel</button>
+<!-- EDITOR PANEL -->
+<div class="editor-panel" id="editor-panel">
+
+  <!-- HOME tab -->
+  <div id="ep-home" class="ep-tab-content">
+    <div class="ep-section">
+      <div class="ep-title">Journal entry</div>
+      <div class="ep-field">
+        <label class="ep-label">Chapter / reference</label>
+        <input class="ep-input" id="ep-ch" placeholder="e.g. Ch.3 — The 2 Minute Rule" />
       </div>
-      <div class="alert" id="pw-alert"></div>
-      <p style="font-size:10px;font-family:var(--mono);color:var(--ink3);margin-top:0.9rem;">Default password: <strong>atomic1percent</strong></p>
-    </div>
-    <div id="w-panel" style="display:none;">
-      <div class="w-tabs">
-        <button class="w-tab active" onclick="wTab('identity')">Identity</button>
-        <button class="w-tab" onclick="wTab('chapters')">Chapters</button>
-        <button class="w-tab" onclick="wTab('entry')">Entry</button>
-        <button class="w-tab" onclick="wTab('habits')">Habits</button>
-      </div>
-      <div class="w-sub active" id="ws-identity">
-        <label class="field-lbl">Identity statement</label>
-        <textarea id="w-identity" rows="3" placeholder='"I am someone who..."'></textarea>
-        <button class="btn-sm" onclick="saveIdentity()">Save</button>
-        <div class="alert" id="id-alert"></div>
-      </div>
-      <div class="w-sub" id="ws-chapters">
-        <div style="font-size:11px;color:var(--ink3);font-family:var(--mono);margin-bottom:4px;">Tap to cycle: none → reading → done</div>
-        <div class="ch-tog-grid" id="ch-tog-grid"></div>
-        <button class="btn-sm" onclick="saveChapters()">Save</button>
-        <div class="alert" id="ch-alert"></div>
-      </div>
-      <div class="w-sub" id="ws-entry">
-        <label class="field-lbl">Chapter</label>
-        <input type="text" id="w-ch" placeholder="e.g. Ch.3 — The 2 Minute Rule" />
-        <label class="field-lbl">Mood</label>
-        <div class="mood-row" id="w-moods">
+      <div class="ep-field">
+        <label class="ep-label">Mood</label>
+        <div class="mood-row" id="ep-moods">
           <button class="mood-btn" data-m="🔥">🔥</button>
           <button class="mood-btn" data-m="😌">😌</button>
           <button class="mood-btn" data-m="😐">😐</button>
           <button class="mood-btn" data-m="😤">😤</button>
           <button class="mood-btn" data-m="💀">💀</button>
         </div>
-        <label class="field-lbl">Entry</label>
-        <textarea id="w-entry" rows="5" placeholder="What happened. Be honest."></textarea>
-        <button class="btn-sm" onclick="saveEntry()">Post</button>
-        <div class="alert" id="en-alert"></div>
       </div>
-      <div class="w-sub" id="ws-habits">
-        <div id="habit-togs"></div>
-        <div style="border-top:1px solid var(--border);padding-top:0.9rem;margin-top:0.75rem;">
-          <label class="field-lbl">Add habit</label>
-          <input type="text" id="w-habit" placeholder="e.g. Morning walk" />
-          <button class="btn-sm" onclick="addHabit()">Add</button>
-        </div>
-        <button class="btn-sm" onclick="saveHabits()" style="margin-top:0.5rem;">Save streaks</button>
-        <div class="alert" id="hab-alert"></div>
+      <div class="ep-field">
+        <label class="ep-label">Entry</label>
+        <textarea class="ep-textarea" id="ep-entry" rows="6" placeholder="What happened today..."></textarea>
       </div>
+      <button class="ep-btn" onclick="saveEntry()">Post entry</button>
+      <div class="ep-alert" id="ep-entry-alert"></div>
     </div>
+    <div class="ep-section">
+      <div class="ep-title">Currently reading</div>
+      <div class="ep-field">
+        <label class="ep-label">Book shown on home</label>
+        <input class="ep-input" id="ep-currently-reading" placeholder="e.g. Atomic Habits" />
+      </div>
+      <button class="ep-btn" onclick="saveCurrentlyReading()">Save</button>
+    </div>
+  </div>
+
+  <!-- BOOKS tab -->
+  <div id="ep-books" class="ep-tab-content" style="display:none;">
+    <div class="ep-section">
+      <div class="ep-title">Books <button class="ep-btn" style="padding:4px 10px;font-size:11px;" onclick="addBook()">+ Add book</button></div>
+      <div id="ep-books-list"></div>
+    </div>
+    <div class="ep-section">
+      <div class="ep-title">Identity statement (Atomic Habits)</div>
+      <div class="ep-field">
+        <textarea class="ep-textarea" id="ep-identity" rows="3" placeholder='"I am someone who..."'></textarea>
+      </div>
+      <button class="ep-btn" onclick="saveIdentity()">Save</button>
+      <div class="ep-alert" id="ep-id-alert"></div>
+    </div>
+    <div class="ep-section">
+      <div class="ep-title">Chapter progress (Atomic Habits)</div>
+      <p style="font-size:11px;color:var(--ink3);font-family:var(--mono);margin-bottom:6px;">Tap to cycle: none → reading → done</p>
+      <div class="ch-tog-grid" id="ep-ch-grid"></div>
+      <button class="ep-btn" style="margin-top:.75rem;" onclick="saveChapters()">Save</button>
+      <div class="ep-alert" id="ep-ch-alert"></div>
+    </div>
+  </div>
+
+  <!-- WRITING tab -->
+  <div id="ep-writing" class="ep-tab-content" style="display:none;">
+    <div class="ep-section">
+      <div class="ep-title">Stories <button class="ep-btn" style="padding:4px 10px;font-size:11px;" onclick="addStory()">+ Add story</button></div>
+      <div id="ep-stories-list"></div>
+    </div>
+  </div>
+
+  <!-- ABOUT tab -->
+  <div id="ep-about" class="ep-tab-content" style="display:none;">
+    <div class="ep-section">
+      <div class="ep-title">About you</div>
+      <div class="ep-field">
+        <label class="ep-label">Tagline</label>
+        <input class="ep-input" id="ep-tagline" placeholder="Just here, figuring it out." />
+      </div>
+      <div class="ep-field">
+        <label class="ep-label">Bio (optional)</label>
+        <textarea class="ep-textarea" id="ep-bio" rows="4" placeholder="A bit about yourself..."></textarea>
+      </div>
+      <div class="ep-field">
+        <label class="ep-label">Instagram URL</label>
+        <input class="ep-input" id="ep-instagram" placeholder="https://instagram.com/yourhandle" />
+      </div>
+      <div class="ep-field">
+        <label class="ep-label">YouTube URL</label>
+        <input class="ep-input" id="ep-youtube" placeholder="https://youtube.com/@yourchannel" />
+      </div>
+      <div class="ep-field">
+        <label class="ep-label">Contact email</label>
+        <input class="ep-input" id="ep-email" placeholder="your@email.com" />
+      </div>
+      <button class="ep-btn" onclick="saveAbout()">Save</button>
+      <div class="ep-alert" id="ep-about-alert"></div>
+    </div>
+  </div>
+
+  <!-- HABITS tab -->
+  <div id="ep-habits" class="ep-tab-content" style="display:none;">
+    <div class="ep-section">
+      <div class="ep-title">Today's habits</div>
+      <div id="ep-habit-togs"></div>
+      <div style="border-top:1px solid var(--border);padding-top:.9rem;margin-top:.75rem;">
+        <label class="ep-label">Add habit</label>
+        <input class="ep-input" id="ep-new-habit" placeholder="e.g. Morning walk" />
+        <button class="ep-btn" style="margin-top:.5rem;" onclick="addHabit()">Add</button>
+      </div>
+      <button class="ep-btn" style="margin-top:.75rem;background:var(--ink);" onclick="saveHabits()">Save streaks</button>
+      <div class="ep-alert" id="ep-hab-alert"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- AUTH OVERLAY -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-box">
+    <h2>Editor access</h2>
+    <p>Enter your password to edit the site</p>
+    <input type="password" id="auth-pw" placeholder="Password" onkeydown="if(event.key==='Enter')checkAuth()" />
+    <button class="btn btn-primary" style="width:100%;" onclick="checkAuth()">Unlock editor</button>
+    <div class="ep-alert" id="auth-alert" style="margin-top:.75rem;"></div>
+    <p style="font-size:10px;font-family:var(--mono);color:var(--ink3);margin-top:1rem;">Default: <strong>atomic1percent</strong></p>
   </div>
 </div>
 
-<script>
-const PW = 'atomic1percent';
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getFirestore, doc, getDoc, setDoc, collection, addDoc, query, orderBy, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAGRvDKwfAJ4O_aKqCT7ryIQ_HwlhxHg7w",
+  authDomain: "vrukx-aecfd.firebaseapp.com",
+  projectId: "vrukx-aecfd",
+  storageBucket: "vrukx-aecfd.firebasestorage.app",
+  messagingSenderId: "815518814833",
+  appId: "1:815518814833:web:a8415d813c78adfb6d81d0"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+const EDITOR_PW = 'atomic1percent';
 const CH_NAMES = ['Intro','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17'];
 
-let data = { identity:'', chapters:{}, journal:[], habits:[], startDate: new Date().toISOString().split('T')[0] };
+let D = {
+  identity:'', chapters:{}, journal:[], habits:[],
+  books:[
+    {id:'ah',title:'Atomic Habits',author:'James Clear',status:'reading',cover:'',isMain:true},
+    {id:'dw',title:'Deep Work',author:'Cal Newport',status:'queue',cover:'',isMain:false},
+    {id:'woa',title:'The War of Art',author:'Steven Pressfield',status:'queue',cover:'',isMain:false},
+  ],
+  stories:[],
+  about:{tagline:'Just here, figuring it out.',bio:'',instagram:'',youtube:'',email:''},
+  currentlyReading:'Atomic Habits',
+  startDate: new Date().toISOString().split('T')[0]
+};
+let openDrawers={}, currentUser=null, isEditorOpen=false;
 
-async function loadData() {
-  try {
-    const r = await window.storage.get('nv-site-v3', true);
-    if (r && r.value) data = JSON.parse(r.value);
-  } catch(e) {}
+// ── LOAD ──
+async function loadData(){
+  try{
+    const snap=await getDoc(doc(db,'site','main'));
+    if(snap.exists()){const sd=snap.data();D={...D,...sd};}
+  }catch(e){console.log('load err',e);}
   renderAll();
 }
 
-async function persist() {
-  try { await window.storage.set('nv-site-v3', JSON.stringify(data), true); } catch(e) {}
+async function persist(){
+  try{await setDoc(doc(db,'site','main'),D);}
+  catch(e){console.log('save err',e);}
 }
 
-function renderAll() { renderDays(); renderIdentity(); renderChapters(); renderHabits(); renderJournal(); }
-
-function renderDays() {
-  const days = Math.max(1, Math.floor((Date.now() - new Date(data.startDate).getTime()) / 86400000) + 1);
-  const el = document.getElementById('days-label');
-  if (el) el.textContent = `Day ${days} of the experiment`;
+// ── RENDER ──
+function renderAll(){
+  renderHome(); renderBooks(); renderWriting(); renderAbout(); renderEditorPanels();
 }
 
-function renderIdentity() {
-  const el = document.getElementById('identity-display');
-  if (!el) return;
-  if (data.identity && data.identity.trim()) { el.textContent = data.identity; el.classList.remove('empty'); }
-  else { el.textContent = 'Not written yet.'; el.classList.add('empty'); }
-  const f = document.getElementById('w-identity');
-  if (f) f.value = data.identity || '';
+function renderHome(){
+  const latestEntry=D.journal&&D.journal.length?D.journal[D.journal.length-1]:null;
+  document.getElementById('home-entry-title').textContent=latestEntry?(latestEntry.chapter||latestEntry.date||'Latest entry'):'Nothing logged yet';
+  document.getElementById('home-entry-snippet').textContent=latestEntry?latestEntry.body.slice(0,120)+(latestEntry.body.length>120?'...':''):'First journal entry coming soon.';
+  document.getElementById('home-reading-book').textContent=D.currentlyReading||'—';
 }
 
-function renderChapters() {
-  const done = CH_NAMES.filter((_,i) => data.chapters[i]==='done').length;
-  const pct = Math.round(done/18*100);
-  const p = document.getElementById('ah-prog'); if(p) p.style.width = pct+'%';
-  const l = document.getElementById('ah-prog-label'); if(l) l.textContent = done+'/18';
-  const grid = document.getElementById('chapters-grid');
-  if (grid) grid.innerHTML = CH_NAMES.map((n,i) => {
-    const st = data.chapters[i]||'none';
+function renderBooks(){
+  const list=document.getElementById('books-list');
+  if(!list) return;
+  list.innerHTML='';
+  (D.books||[]).forEach(book=>{
+    const wrap=document.createElement('div');
+    const coverHtml=book.cover
+      ?`<div class="book-cover" style="background:none;border:1px solid var(--border);"><img src="${book.cover}" alt="${book.title}" onerror="this.parentElement.innerHTML='<span>${book.title}</span>';this.parentElement.style.background='var(--blue)';" /></div>`
+      :`<div class="book-cover ${book.status==='queue'?'inactive':''}" ><span>${book.title}</span></div>`;
+    const progHtml=book.status==='reading'?`
+      <div class="book-prog-wrap"><div class="book-prog-fill" id="prog-${book.id}" style="width:${getProgress(book.id)}%"></div></div>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--ink3);">${getChDone(book.id)}/18</span>`:'';
+    wrap.innerHTML=`
+      <div class="book-item" onclick="toggleDrawer('${book.id}')">
+        ${coverHtml}
+        <div class="book-meta">
+          <div class="book-title">${book.title}</div>
+          <div class="book-author">${book.author}</div>
+          <div class="book-status-row">
+            <span class="book-tag ${book.status}">${book.status==='reading'?'Reading':book.status==='done'?'Read':book.status==='queue'?'Up next':book.status}</span>
+            ${progHtml}
+          </div>
+        </div>
+        <span class="book-arrow" id="arr-${book.id}">→</span>
+      </div>
+      <div class="book-drawer" id="drawer-${book.id}">
+        ${book.isMain?mainBookDrawer(book):`
+          <p style="font-size:13px;color:var(--ink3);margin-bottom:1.5rem;">${book.note||'Coming soon.'}</p>
+        `}
+        <div class="reviews-wrap">
+          <span class="drawer-lbl">What others think</span>
+          <div id="rev-list-${book.id}"></div>
+          <div id="rev-auth-${book.id}"></div>
+        </div>
+      </div>`;
+    list.appendChild(wrap);
+    loadReviews(book.id);
+  });
+}
+
+function mainBookDrawer(book){
+  const identity=D.identity&&D.identity.trim()
+    ?`<div class="identity-text">${esc(D.identity)}</div>`
+    :`<div class="identity-text empty">Not written yet.</div>`;
+  const chBoxes=CH_NAMES.map((n,i)=>{
+    const st=D.chapters[i]||'none';
     return `<div class="ch-box ${st==='done'?'done':st==='reading'?'reading':''}">${n}</div>`;
   }).join('');
-  const tg = document.getElementById('ch-tog-grid');
-  if (tg) tg.innerHTML = CH_NAMES.map((n,i) => {
-    const st = data.chapters[i]||'none';
-    return `<div class="ch-tog ${st==='done'?'done':st==='reading'?'reading':''}" onclick="cycleChapter(${i})">${n}</div>`;
-  }).join('');
+  const habitsHtml=buildHabitsPub();
+  const journalHtml=buildJournalPub();
+  return `
+    <div style="margin-bottom:1.5rem;">
+      <span class="drawer-lbl">Who I'm becoming</span>
+      <div class="identity-block">${identity}</div>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <span class="drawer-lbl">Chapter progress</span>
+      <div class="ch-grid">${chBoxes}</div>
+      <div class="leg-row">
+        <span><span class="leg-dot" style="background:var(--blue);"></span>Done</span>
+        <span><span class="leg-dot" style="background:var(--blue-soft);border:1px solid var(--blue-mid);"></span>Reading</span>
+        <span><span class="leg-dot" style="background:var(--border);"></span>Not yet</span>
+      </div>
+    </div>
+    ${habitsHtml?`<div style="margin-bottom:1.5rem;"><span class="drawer-lbl">Habit streaks — last 14 days</span>${habitsHtml}</div>`:''}
+    <div style="margin-bottom:0;">
+      <span class="drawer-lbl">Field notes</span>
+      ${journalHtml}
+    </div>`;
 }
 
-function renderHabits() {
-  const wrap = document.getElementById('habits-pub-wrap');
-  const pub = document.getElementById('habits-pub');
-  if (!wrap||!pub) return;
-  if (!data.habits||!data.habits.length) { wrap.style.display='none'; return; }
-  wrap.style.display='block';
-  const today = new Date();
-  pub.innerHTML = data.habits.map(h => {
-    const dots = Array.from({length:14},(_,d)=>{
-      const dt=new Date(today); dt.setDate(dt.getDate()-(13-d));
+function buildHabitsPub(){
+  if(!D.habits||!D.habits.length) return '';
+  const today=new Date();
+  return D.habits.map(h=>{
+    const dots=Array.from({length:14},(_,d)=>{
+      const dt=new Date(today);dt.setDate(dt.getDate()-(13-d));
       return `<div class="hdot ${h.log&&h.log[dt.toDateString()]?'on':''}"></div>`;
     }).join('');
-    return `<div class="habit-row-pub">
-      <div><div style="font-size:13px;font-weight:500;">${h.name}</div><div class="habit-dots">${dots}</div></div>
-      <span class="streak-pill">${calcStreak(h.log||{})}d</span>
-    </div>`;
+    return `<div class="habit-pub-row"><div><div style="font-size:13px;font-weight:500;">${h.name}</div><div class="h-dots">${dots}</div></div><span class="streak-pill">${calcStreak(h.log||{})}d</span></div>`;
   }).join('');
-  const ht = document.getElementById('habit-togs');
-  if (ht) {
-    const tk = new Date().toDateString();
-    ht.innerHTML = data.habits.map((h,i) => {
-      const done = h.log&&h.log[tk];
-      return `<div style="display:flex;align-items:center;justify-content:space-between;padding:0.45rem 0;border-bottom:1px solid var(--border);">
-        <span style="font-size:13px;">${h.name}</span>
-        <button onclick="toggleToday(${i})" style="font-size:11px;padding:3px 10px;border-radius:3px;border:1px solid var(--border);background:${done?'var(--blue)':'transparent'};color:${done?'white':'var(--ink3)'};cursor:pointer;font-family:var(--mono);">${done?'✓ done':'mark done'}</button>
-      </div>`;
-    }).join('');
-  }
 }
 
-function renderJournal() {
-  const c = document.getElementById('journal-pub');
-  if (!c) return;
-  if (!data.journal||!data.journal.length) {
-    c.innerHTML = `<div class="empty-state"><strong>Nothing logged yet</strong>First entry coming soon</div>`; return;
-  }
-  c.innerHTML = [...data.journal].reverse().map((e,i) => `
-    <div class="entry-item">
-      <div class="entry-meta-row">
+function buildJournalPub(){
+  if(!D.journal||!D.journal.length) return `<div class="empty-state"><strong>Nothing logged yet</strong>First entry coming soon</div>`;
+  return [...D.journal].reverse().map((e,i)=>`
+    <div class="entry-card">
+      <div class="entry-meta">
         <span class="entry-date">${e.date}</span>
-        ${e.chapter?`<span class="entry-ch-tag">${e.chapter}</span>`:''}
+        ${e.chapter?`<span class="entry-ch">${esc(e.chapter)}</span>`:''}
         ${e.mood?`<span style="font-size:13px;">${e.mood}</span>`:''}
       </div>
       <div class="entry-body clamp" id="eb-${i}">${esc(e.body)}</div>
@@ -475,82 +649,392 @@ function renderJournal() {
     </div>`).join('');
 }
 
-function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function expand(id,btn){ document.getElementById(id).classList.remove('clamp'); btn.style.display='none'; }
-function calcStreak(log){ let s=0,d=new Date(); while(s<365){if(log[d.toDateString()]){s++;d.setDate(d.getDate()-1);}else break;} return s; }
-
-let ahOpen = false;
-function toggleAH() {
-  ahOpen = !ahOpen;
-  document.getElementById('ah-drawer').classList.toggle('open', ahOpen);
-  document.getElementById('ah-arrow').textContent = ahOpen ? '↓' : '→';
+function getProgress(bookId){
+  if(bookId!=='ah') return 0;
+  const done=CH_NAMES.filter((_,i)=>D.chapters[i]==='done').length;
+  return Math.round(done/18*100);
+}
+function getChDone(bookId){
+  if(bookId!=='ah') return 0;
+  return CH_NAMES.filter((_,i)=>D.chapters[i]==='done').length;
 }
 
-function openW() { document.getElementById('w-modal').classList.add('open'); }
-function closeW() {
-  document.getElementById('w-modal').classList.remove('open');
-  document.getElementById('w-auth').style.display='block';
-  document.getElementById('w-panel').style.display='none';
-  document.getElementById('pw').value='';
+function renderWriting(){
+  const list=document.getElementById('writing-list');
+  if(!list) return;
+  if(!D.stories||!D.stories.length){
+    list.innerHTML=`<div class="empty-writing"><strong>Coming soon</strong>Working on getting this up.</div>`;
+    return;
+  }
+  list.innerHTML=D.stories.map((s,i)=>`
+    <div class="story-card">
+      <div class="story-title">${esc(s.title||'Untitled')}</div>
+      <div class="story-meta">${s.year||''} ${s.genre?'· '+s.genre:''}</div>
+      <div class="story-preview">${esc(s.text||'').slice(0,400)}...</div>
+      <div class="story-full" id="sf-${i}">${esc(s.text||'')}</div>
+      <div class="story-actions">
+        <button class="btn btn-primary" onclick="readStory(${i},this)">Read →</button>
+        ${s.pdfUrl?`<a href="${s.pdfUrl}" download class="btn btn-ghost">Download PDF</a>`:''}
+      </div>
+    </div>`).join('');
 }
-function checkPw() {
-  const a = document.getElementById('pw-alert');
-  if (document.getElementById('pw').value===PW) {
-    document.getElementById('w-auth').style.display='none';
-    document.getElementById('w-panel').style.display='block';
-    renderChapters(); renderHabits();
-  } else { a.textContent='Wrong password.'; a.className='alert err'; }
+
+function renderAbout(){
+  const ab=D.about||{};
+  const tEl=document.getElementById('about-tagline');
+  if(tEl) tEl.textContent=ab.tagline||'Just here, figuring it out.';
+  const bEl=document.getElementById('about-bio');
+  if(bEl){bEl.textContent=ab.bio||'';bEl.style.display=ab.bio?'block':'none';}
+
+  const sl=document.getElementById('social-links');
+  if(sl){
+    let html='';
+    if(ab.instagram) html+=`<a href="${ab.instagram}" target="_blank" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>`;
+    if(ab.youtube) html+=`<a href="${ab.youtube}" target="_blank" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>YouTube</a>`;
+    sl.innerHTML=html;
+  }
+
+  const fs=document.getElementById('footer-social');
+  if(fs){
+    let html='';
+    if(ab.instagram) html+=`<a href="${ab.instagram}" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>`;
+    if(ab.youtube) html+=`<a href="${ab.youtube}" target="_blank" title="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>`;
+    fs.innerHTML=html;
+  }
 }
-function wTab(name) {
-  ['identity','chapters','entry','habits'].forEach((n,i)=>{
-    document.querySelectorAll('.w-tab')[i].classList.toggle('active',n===name);
-    document.getElementById('ws-'+n).classList.toggle('active',n===name);
+
+function renderEditorPanels(){
+  // books list in editor
+  const epbl=document.getElementById('ep-books-list');
+  if(epbl){
+    epbl.innerHTML=(D.books||[]).map((b,i)=>`
+      <div class="book-edit-card">
+        <div class="book-edit-card-header">
+          <span class="book-edit-card-title">${b.title}</span>
+          <button class="ep-btn ep-btn-danger" style="padding:3px 8px;font-size:11px;" onclick="removeBook(${i})">Remove</button>
+        </div>
+        <div class="ep-field"><label class="ep-label">Title</label><input class="ep-input" value="${esc(b.title)}" onchange="updateBook(${i},'title',this.value)" /></div>
+        <div class="ep-field"><label class="ep-label">Author</label><input class="ep-input" value="${esc(b.author)}" onchange="updateBook(${i},'author',this.value)" /></div>
+        <div class="ep-field"><label class="ep-label">Status</label>
+          <select class="ep-select" onchange="updateBook(${i},'status',this.value)">
+            <option value="reading" ${b.status==='reading'?'selected':''}>Reading</option>
+            <option value="queue" ${b.status==='queue'?'selected':''}>Up next</option>
+            <option value="done" ${b.status==='done'?'selected':''}>Done</option>
+          </select>
+        </div>
+        <div class="ep-field"><label class="ep-label">Cover image URL</label><input class="ep-input" value="${b.cover||''}" placeholder="Paste image URL..." onchange="updateBook(${i},'cover',this.value)" /></div>
+        <div class="ep-field"><label class="ep-label">Note (shown in drawer)</label><input class="ep-input" value="${b.note||''}" placeholder="A note about this book..." onchange="updateBook(${i},'note',this.value)" /></div>
+      </div>`).join('');
+  }
+
+  // chapter toggles
+  const epCh=document.getElementById('ep-ch-grid');
+  if(epCh) epCh.innerHTML=CH_NAMES.map((n,i)=>{
+    const st=D.chapters[i]||'none';
+    return `<div class="ch-tog ${st==='done'?'done':st==='reading'?'reading':''}" onclick="cycleChapter(${i})">${n}</div>`;
+  }).join('');
+
+  // habits
+  const ht=document.getElementById('ep-habit-togs');
+  if(ht){
+    const tk=new Date().toDateString();
+    ht.innerHTML=(D.habits||[]).map((h,i)=>{
+      const done=h.log&&h.log[tk];
+      return `<div class="habit-tog-row">
+        <span style="font-size:13px;">${h.name}</span>
+        <div style="display:flex;gap:4px;">
+          <button class="tog-btn ${done?'done':''}" onclick="toggleToday(${i})">${done?'✓':'done?'}</button>
+          <button class="tog-btn" style="color:#DC2626;border-color:#DC2626;" onclick="removeHabit(${i})">×</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // stories
+  const esl=document.getElementById('ep-stories-list');
+  if(esl){
+    esl.innerHTML=(D.stories||[]).map((s,i)=>`
+      <div class="book-edit-card">
+        <div class="book-edit-card-header">
+          <span class="book-edit-card-title">${s.title||'Untitled'}</span>
+          <button class="ep-btn ep-btn-danger" style="padding:3px 8px;font-size:11px;" onclick="removeStory(${i})">Remove</button>
+        </div>
+        <div class="ep-field"><label class="ep-label">Title</label><input class="ep-input" value="${esc(s.title||'')}" onchange="updateStory(${i},'title',this.value)" /></div>
+        <div class="ep-field"><label class="ep-label">Year</label><input class="ep-input" value="${s.year||''}" onchange="updateStory(${i},'year',this.value)" /></div>
+        <div class="ep-field"><label class="ep-label">Genre</label><input class="ep-input" value="${s.genre||''}" onchange="updateStory(${i},'genre',this.value)" /></div>
+        <div class="ep-field"><label class="ep-label">Story text</label><textarea class="ep-textarea" rows="8" onchange="updateStory(${i},'text',this.value)">${esc(s.text||'')}</textarea></div>
+        <div class="ep-field"><label class="ep-label">PDF download URL (optional)</label><input class="ep-input" value="${s.pdfUrl||''}" placeholder="Link to PDF..." onchange="updateStory(${i},'pdfUrl',this.value)" /></div>
+      </div>`).join('');
+  }
+
+  // about fields
+  const ab=D.about||{};
+  const fields={
+    'ep-tagline':ab.tagline||'','ep-bio':ab.bio||'',
+    'ep-instagram':ab.instagram||'','ep-youtube':ab.youtube||'','ep-email':ab.email||''
+  };
+  Object.entries(fields).forEach(([id,val])=>{const el=document.getElementById(id);if(el)el.value=val;});
+
+  // identity
+  const idEl=document.getElementById('ep-identity'); if(idEl) idEl.value=D.identity||'';
+  // currently reading
+  const crEl=document.getElementById('ep-currently-reading'); if(crEl) crEl.value=D.currentlyReading||'';
+}
+
+// ── REVIEWS ──
+async function loadReviews(bookId){
+  const listEl=document.getElementById('rev-list-'+bookId);
+  const authEl=document.getElementById('rev-auth-'+bookId);
+  if(!listEl||!authEl) return;
+  try{
+    const q=query(collection(db,'reviews_'+bookId),orderBy('timestamp','desc'));
+    const snap=await getDocs(q);
+    if(snap.empty){
+      listEl.innerHTML=`<div class="empty-state"><strong>No reviews yet</strong>Be the first</div>`;
+    } else {
+      listEl.innerHTML=snap.docs.map(d=>{
+        const r=d.data();
+        const stars=Array.from({length:5},(_,i)=>`<span class="star ${i<(r.stars||5)?'':'empty'}">★</span>`).join('');
+        const init=(r.name||'?').split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+        return `<div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">${r.photo?`<img src="${r.photo}" alt="" />`:`${init}`}</div>
+            <div><div class="review-name">${esc(r.name||'Anonymous')}</div><div class="stars">${stars}</div></div>
+            <div class="review-date">${r.timestamp?.toDate?.()?.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})||''}</div>
+          </div>
+          <div class="review-body">${esc(r.text||'')}</div>
+        </div>`;
+      }).join('');
+    }
+  }catch(e){listEl.innerHTML='';}
+  renderReviewForm(bookId,authEl);
+}
+
+function renderReviewForm(bookId,authEl){
+  if(currentUser){
+    authEl.innerHTML=`
+      <div class="user-bar">
+        ${currentUser.photoURL?`<img src="${currentUser.photoURL}" alt="" />`:''}
+        <span>${currentUser.displayName||currentUser.email}</span>
+        <button class="signout-btn" onclick="doSignOut()">Sign out</button>
+      </div>
+      <div class="review-form-wrap">
+        <h4>Leave your review</h4>
+        <div class="star-picker" id="stars-${bookId}" data-val="5">
+          ${[1,2,3,4,5].map(i=>`<span class="star-pick lit" data-s="${i}" onclick="setStar('${bookId}',${i})">★</span>`).join('')}
+        </div>
+        <textarea id="rev-text-${bookId}" rows="3" placeholder="What did you think?"></textarea>
+        <button class="ep-btn" style="margin-top:.5rem;" onclick="submitReview('${bookId}')">Post review</button>
+        <div class="ep-alert" id="rev-alert-${bookId}"></div>
+      </div>`;
+  } else {
+    authEl.innerHTML=`
+      <div class="sign-in-box">
+        <p>Sign in with Google to leave a review</p>
+        <button class="btn-google" onclick="doSignIn()">
+          <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Continue with Google
+        </button>
+      </div>`;
+  }
+}
+
+window.doSignIn=async()=>{try{await signInWithPopup(auth,provider);}catch(e){}};
+window.doSignOut=async()=>{await signOut(auth);};
+window.setStar=(bookId,val)=>{
+  const row=document.getElementById('stars-'+bookId);if(!row)return;
+  row.dataset.val=val;
+  row.querySelectorAll('.star-pick').forEach((s,i)=>s.classList.toggle('lit',i<val));
+};
+window.submitReview=async(bookId)=>{
+  if(!currentUser)return;
+  const text=document.getElementById('rev-text-'+bookId)?.value.trim();
+  const stars=parseInt(document.getElementById('stars-'+bookId)?.dataset.val||'5');
+  const alertEl=document.getElementById('rev-alert-'+bookId);
+  if(!text){if(alertEl){alertEl.textContent='Write something first.';alertEl.className='ep-alert err';}return;}
+  try{
+    await addDoc(collection(db,'reviews_'+bookId),{name:currentUser.displayName||'Anonymous',photo:currentUser.photoURL||'',uid:currentUser.uid,text,stars,timestamp:serverTimestamp()});
+    document.getElementById('rev-text-'+bookId).value='';
+    if(alertEl){alertEl.textContent='Review posted!';alertEl.className='ep-alert ok';setTimeout(()=>alertEl.className='ep-alert',2500);}
+    loadReviews(bookId);
+  }catch(e){if(alertEl){alertEl.textContent='Error. Try again.';alertEl.className='ep-alert err';}}
+};
+
+onAuthStateChanged(auth,user=>{
+  currentUser=user;
+  (D.books||[]).forEach(b=>{
+    const authEl=document.getElementById('rev-auth-'+b.id);
+    if(authEl)renderReviewForm(b.id,authEl);
   });
-}
-function cycleChapter(i) {
-  const c=data.chapters[i]||'none';
-  data.chapters[i]=c==='none'?'reading':c==='reading'?'done':'none';
-  renderChapters();
-}
-async function saveIdentity() {
-  data.identity=document.getElementById('w-identity').value.trim();
-  await persist(); renderIdentity(); flash('id-alert','Saved!','ok');
-}
-async function saveChapters() { await persist(); renderChapters(); flash('ch-alert','Saved!','ok'); }
-document.querySelectorAll('#w-moods .mood-btn').forEach(b=>{
-  b.addEventListener('click',()=>{ document.querySelectorAll('#w-moods .mood-btn').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); });
 });
-async function saveEntry() {
-  const body=document.getElementById('w-entry').value.trim();
-  if (!body){ flash('en-alert','Write something first.','err'); return; }
-  const mood=document.querySelector('#w-moods .mood-btn.sel');
-  if (!data.journal) data.journal=[];
-  data.journal.push({ date:new Date().toLocaleDateString('en-US',{weekday:'short',month:'long',day:'numeric',year:'numeric'}), chapter:document.getElementById('w-ch').value.trim(), mood:mood?mood.dataset.m:null, body });
-  await persist();
-  document.getElementById('w-entry').value=''; document.getElementById('w-ch').value='';
-  if(mood) mood.classList.remove('sel');
-  renderJournal(); flash('en-alert','Posted!','ok');
-}
-function addHabit() {
-  const n=document.getElementById('w-habit').value.trim(); if(!n) return;
-  if(!data.habits) data.habits=[];
-  data.habits.push({name:n,log:{}});
-  document.getElementById('w-habit').value=''; renderHabits();
-}
-function toggleToday(i) {
-  const k=new Date().toDateString();
-  if(!data.habits[i].log) data.habits[i].log={};
-  data.habits[i].log[k]=!data.habits[i].log[k]; renderHabits();
-}
-async function saveHabits() { await persist(); renderHabits(); flash('hab-alert','Saved!','ok'); }
-function flash(id,msg,type){ const el=document.getElementById(id); if(!el) return; el.textContent=msg; el.className='alert '+type; setTimeout(()=>el.className='alert',2500); }
 
+// ── EDITOR ──
+window.checkAuth=()=>{
+  const pw=document.getElementById('auth-pw').value;
+  const a=document.getElementById('auth-alert');
+  if(pw===EDITOR_PW){
+    document.getElementById('auth-overlay').classList.remove('show');
+    openEditorMode();
+  } else {a.textContent='Wrong password.';a.className='ep-alert err';}
+};
+
+function openEditorMode(){
+  isEditorOpen=true;
+  document.body.classList.add('editing');
+  document.getElementById('editor-bar').classList.add('show');
+  document.getElementById('editor-panel').classList.add('show');
+  renderEditorPanels();
+}
+
+window.exitEditor=()=>{
+  isEditorOpen=false;
+  document.body.classList.remove('editing');
+  document.getElementById('editor-bar').classList.remove('show');
+  document.getElementById('editor-panel').classList.remove('show');
+};
+
+window.eTab=(name)=>{
+  document.querySelectorAll('.etab').forEach((t,i)=>{
+    const names=['home','books','writing','about','habits'];
+    t.classList.toggle('active',names[i]===name);
+  });
+  document.querySelectorAll('.ep-tab-content').forEach(c=>c.style.display='none');
+  document.getElementById('ep-'+name).style.display='block';
+};
+
+window.publishChanges=async()=>{
+  const btn=document.getElementById('publish-btn');
+  btn.textContent='Publishing...';btn.classList.add('saving');
+  await persist();
+  renderAll();
+  btn.textContent='Published ✓';
+  setTimeout(()=>{btn.textContent='Publish changes';btn.classList.remove('saving');},2000);
+};
+
+// editor actions
+window.saveEntry=async()=>{
+  const body=document.getElementById('ep-entry').value.trim();
+  if(!body){flash('ep-entry-alert','Write something first.','err');return;}
+  const mood=document.querySelector('#ep-moods .mood-btn.sel');
+  if(!D.journal)D.journal=[];
+  D.journal.push({date:new Date().toLocaleDateString('en-US',{weekday:'short',month:'long',day:'numeric',year:'numeric'}),chapter:document.getElementById('ep-ch').value.trim(),mood:mood?mood.dataset.m:null,body});
+  document.getElementById('ep-entry').value='';document.getElementById('ep-ch').value='';
+  if(mood)mood.classList.remove('sel');
+  flash('ep-entry-alert','Entry added — hit Publish to go live','ok');
+  renderHome();
+};
+
+window.saveCurrentlyReading=()=>{
+  D.currentlyReading=document.getElementById('ep-currently-reading').value.trim();
+  renderHome();flash('ep-entry-alert','Saved — hit Publish','ok');
+};
+
+window.saveIdentity=()=>{
+  D.identity=document.getElementById('ep-identity').value.trim();
+  flash('ep-id-alert','Saved — hit Publish','ok');
+};
+
+window.saveChapters=()=>{flash('ep-ch-alert','Saved — hit Publish','ok');};
+
+window.cycleChapter=(i)=>{
+  const c=D.chapters[i]||'none';
+  D.chapters[i]=c==='none'?'reading':c==='reading'?'done':'none';
+  renderEditorPanels();
+};
+
+window.addBook=()=>{
+  if(!D.books)D.books=[];
+  D.books.push({id:'book-'+Date.now(),title:'New Book',author:'Author',status:'queue',cover:'',isMain:false,note:''});
+  renderEditorPanels();
+};
+
+window.removeBook=(i)=>{if(confirm('Remove this book?')){D.books.splice(i,1);renderEditorPanels();}};
+window.updateBook=(i,field,val)=>{if(D.books[i])D.books[i][field]=val;};
+
+window.addStory=()=>{
+  if(!D.stories)D.stories=[];
+  D.stories.push({title:'New Story',year:new Date().getFullYear().toString(),genre:'',text:'',pdfUrl:''});
+  renderEditorPanels();
+};
+window.removeStory=(i)=>{if(confirm('Remove this story?')){D.stories.splice(i,1);renderEditorPanels();renderWriting();}};
+window.updateStory=(i,field,val)=>{if(D.stories[i])D.stories[i][field]=val;};
+
+window.saveAbout=()=>{
+  if(!D.about)D.about={};
+  D.about.tagline=document.getElementById('ep-tagline').value.trim();
+  D.about.bio=document.getElementById('ep-bio').value.trim();
+  D.about.instagram=document.getElementById('ep-instagram').value.trim();
+  D.about.youtube=document.getElementById('ep-youtube').value.trim();
+  D.about.email=document.getElementById('ep-email').value.trim();
+  renderAbout();flash('ep-about-alert','Saved — hit Publish','ok');
+};
+
+window.addHabit=()=>{
+  const n=document.getElementById('ep-new-habit').value.trim();if(!n)return;
+  if(!D.habits)D.habits=[];
+  D.habits.push({name:n,log:{}});
+  document.getElementById('ep-new-habit').value='';renderEditorPanels();
+};
+window.removeHabit=(i)=>{D.habits.splice(i,1);renderEditorPanels();};
+window.toggleToday=(i)=>{
+  const k=new Date().toDateString();
+  if(!D.habits[i].log)D.habits[i].log={};
+  D.habits[i].log[k]=!D.habits[i].log[k];renderEditorPanels();
+};
+window.saveHabits=()=>{flash('ep-hab-alert','Saved — hit Publish','ok');};
+
+// ── CONTACT ──
+window.sendContact=async()=>{
+  const name=document.getElementById('contact-name').value.trim();
+  const msg=document.getElementById('contact-msg').value.trim();
+  const email=document.getElementById('contact-email').value.trim();
+  const a=document.getElementById('contact-alert');
+  if(!msg){a.textContent='Write a message first.';a.className='ep-alert err';return;}
+  try{
+    await addDoc(collection(db,'messages'),{name,email,message:msg,timestamp:serverTimestamp()});
+    document.getElementById('contact-name').value='';
+    document.getElementById('contact-email').value='';
+    document.getElementById('contact-msg').value='';
+    a.textContent='Message sent!';a.className='ep-alert ok';
+    setTimeout(()=>a.className='ep-alert',3000);
+  }catch(e){a.textContent='Error sending. Try again.';a.className='ep-alert err';}
+};
+
+// ── UTILS ──
+window.toggleDrawer=(id)=>{
+  openDrawers[id]=!openDrawers[id];
+  document.getElementById('drawer-'+id).classList.toggle('open',openDrawers[id]);
+  document.getElementById('arr-'+id).textContent=openDrawers[id]?'↓':'→';
+};
+window.expand=(id,btn)=>{document.getElementById(id).classList.remove('clamp');btn.style.display='none';};
+window.readStory=(i,btn)=>{
+  const sf=document.getElementById('sf-'+i);
+  const prev=sf.previousElementSibling;
+  if(sf.classList.toggle('open')){btn.textContent='Close ↑';if(prev)prev.style.display='none';}
+  else{btn.textContent='Read →';if(prev)prev.style.display='';}
+};
+
+function calcStreak(log){let s=0,d=new Date();while(s<365){if(log[d.toDateString()]){s++;d.setDate(d.getDate()-1);}else break;}return s;}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function flash(id,msg,type){const el=document.getElementById(id);if(!el)return;el.textContent=msg;el.className='ep-alert '+type;setTimeout(()=>el.className='ep-alert',3000);}
+
+// mood buttons
+document.querySelectorAll('#ep-moods .mood-btn').forEach(b=>{
+  b.addEventListener('click',()=>{document.querySelectorAll('#ep-moods .mood-btn').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');});
+});
+
+// secret URL
+if(window.location.search.includes('edit')){
+  window.addEventListener('load',()=>setTimeout(()=>document.getElementById('auth-overlay').classList.add('show'),300));
+}
+
+// nav scroll
 window.addEventListener('scroll',()=>{
   const y=window.scrollY+80;
-  ['now','books','about'].forEach(id=>{
-    const s=document.getElementById(id); const l=document.querySelector(`.nav-links a[href="#${id}"]`);
-    if(!s||!l) return;
-    l.classList.toggle('active', y>=s.offsetTop && y<s.offsetTop+s.offsetHeight);
+  ['home','books','writing','about','contact'].forEach(id=>{
+    const s=document.getElementById(id);const l=document.querySelector(`.nav-links a[href="#${id}"]`);
+    if(!s||!l)return;
+    l.classList.toggle('active',y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight);
   });
 });
 
